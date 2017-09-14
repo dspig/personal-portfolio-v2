@@ -1,0 +1,21 @@
+$largeMonitorBreakpoint: 1200px;
+$smallMonitorBreakpoint: 992px;
+$mobileBreakpoint: 768px;
+
+// @media only screen and (min-width: $mobileBreakpoint) and (max-width: $smallMonitorBreakpoint) {
+//   .featured.outer-container .image-group>.row .image {
+//     height: 300px !important;
+//   }
+// }
+
+// @media only screen and (min-width: $smallMonitorBreakpoint) and (max-width: $largeMonitorBreakpoint) {
+//   .featured.outer-container .image-group>.row .image {
+//     height: 385px !important;
+//   }
+// }
+
+// @media only screen and (min-width: $largeMonitorBreakpoint) {
+//   .featured.outer-container .image-group>.row .image {
+//     height: 470px !important;
+//   }
+// }
