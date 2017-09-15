@@ -1,0 +1,28 @@
+// breakpoints
+// =====================
+$largeMonitorBreakpoint: 1200px;
+$smallMonitorBreakpoint: 992px;
+$mobileBreakpoint: 768px;
+
+// style variables
+// =====================
+// colors
+$blue: #007bff;
+$black: #212529;
+$bg-light: #ececec;
+
+// animations
+$transition: 0.3s;
+
+// elements
+$nav-height: 50px;
+
+// mixins
+// =====================
+@mixin background-full($url) {
+  background: #333 url('../../src/assets/non-svg/' + $url) no-repeat center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -ms-background-size: cover;
+  background-size: cover;
+}

@@ -1,0 +1,52 @@
+@import '../../assets/partials/styles';
+
+.home-wrapper {
+  height: 100vh;
+  @include background-full('home.jpeg');
+
+  .overlay {
+    height: 100%;
+    background: rgba(0, 0, 0, 0.65);
+    
+    .content {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  
+      .heading {
+        color: #fff;
+        text-align: center;
+  
+        h1 { 
+          font-size: 75px; 
+          font-weight: 700;
+          line-height: 75px;
+          margin-bottom: 50px;
+          text-transform: uppercase;
+        }
+
+        h2 { 
+          font-size: 2rem; 
+          font-style: italic;
+        }
+
+        .btn-primary {
+          font-size: 18px;
+          font-weight: 700;
+          padding: 20px 40px;
+          border: none;
+          border-radius: 3px;
+          color: #fff;
+          background-color: $blue;
+          text-transform: uppercase;
+          transition: background-color $transition linear;
+          
+          &:hover {
+            background-color: darken($blue, 25%);
+          }
+        }
+      }
+    }
+  }
+}

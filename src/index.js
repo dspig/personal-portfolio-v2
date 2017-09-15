@@ -1,25 +1,32 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { createStore, applyMiddleware } from 'redux'
 import ReduxPromise from 'redux-promise'
 import reducers from './reducers'
-import './index.css';
+import './styles.css';
 
-import PlaceholderView from './components/Placeholder/Placeholder'
+import Navbar from './components/Navbar/Navbar'
+import Home from './components/Home/Home'
+import About from './components/About/About'
+import Projects from './components/Projects/Projects'
+import Contact from './components/Contact/Contact'
+
+const App = () => (
+  <div className='app-wrapper'>
+    <Navbar />
+    <Home />
+    <About />
+    <Projects />
+    <Contact />
+  </div>
+)
 
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore)
 
-// Examples of using react router
-
 ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
-    <BrowserRouter>
-      <Switch> 
-        <Route path="/" component={PlaceholderView} />
-      </Switch>
-    </BrowserRouter>
+    <App />
   </Provider>,
   document.getElementById('root')
 );
