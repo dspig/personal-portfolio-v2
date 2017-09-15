@@ -21,7 +21,7 @@ $nav-height: 50px;
 // mixins
 // =====================
 @mixin background-full($url) {
-  background: #333 url('../../src/assets/non-svg/' + $url) no-repeat center fixed;
+  background: #333 url('../../src/assets/images/' + $url) no-repeat center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -ms-background-size: cover;

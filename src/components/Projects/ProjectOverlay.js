@@ -2,14 +2,36 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { closeProject } from '../../actions/close_project'
 
-import test from '../../assets/non-svg/home.jpeg'
+import test from '../../assets/images/home.jpeg'
 
 class ProjectOverlay extends Component {
   handleClose = () => this.props.closeProject()
+  renderVideo = (image, video) => {
+    if(!video) return
+    
+    const format = video.split('.')[1]
+    const type = `video/${format}`
+
+    const vidProps = {
+      controls: true,
+      autoPlay: true,
+      loop: true,
+      poster: `../../assets/images/${image}`,
+      className: 'embed-responsive-item'
+    }
+
+    return (
+      <div className='embed-responsive embed-responsive-16by9'>
+        <video {...vidProps}>
+          <source src={require(`../../assets/videos/${video}`)} type={type} />
+        </video>
+      </div>
+    )
+  }
 
   render() {
     const { state, current } = this.props.projectState || {}
-    const { image, name, description } = current || {}
+    const { image, video, name, description } = current || {}
     const currentState = state ? 'active' : ''
     const classname = `project-overlay ${currentState}`
 
@@ -25,7 +47,7 @@ class ProjectOverlay extends Component {
             <h2>{ name }</h2>
             <p>Lorem ipsum dolor sit amet consectetur.</p>
           </div>
-          <img src={test} className='img-fluid' alt='project alt' />
+          { this.renderVideo(image, video) }
           <hr className='divider' />
           <div>
             <p>{ description }</p>

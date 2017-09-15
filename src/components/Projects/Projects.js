@@ -5,7 +5,7 @@ import SectionTitle from '../SectionTitle'
 import ProjectOverlay from './ProjectOverlay'
 
 import { projects } from '../../assets/scripts/projects'
-import testImage from '../../assets/non-svg/home.jpeg'
+import testImage from '../../assets/images/home.jpeg'
 
 class Projects extends Component {
   handleProject = index => this.props.openProject(index)
