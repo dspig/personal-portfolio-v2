@@ -1,5 +1,102 @@
 @import '../../assets/partials/styles';
 
+.app-wrapper { position: relative; }
 .projects-wrapper {
   background: $bg-light;
+  
+  .project-card {
+    margin-bottom: 30px;
+
+    .card {
+      border-radius: 0;
+      position: relative;
+      cursor: pointer;
+
+      &:hover > .overlay {
+        background-color: rgba(0, 123, 255, 0.5);
+
+        i { color: #fff; }
+      }
+
+      .overlay {
+        position: absolute;
+        height: calc(100% - 75px);
+        width: 100%;
+        transition: background-color $transition linear;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        i {
+          font-size: 3em;
+          color: transparent;
+        }
+      }
+
+      img { border-radius: 0; }
+      .card-block {
+        height: 75px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        h4 {
+          font-weight: 700;
+          font-size: 1.25rem;
+        }
+      }
+    }
+  }
+
+  .project-overlay {
+    z-index: -5;
+    opacity: 0;
+    transition: opacity $transition linear;
+    background: #fff;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    padding: 200px 0;
+    
+    &.active { 
+      z-index: 10;
+      opacity: 1;
+    }
+
+    .fa-times {
+      position: absolute;
+      top: 25px;
+      right: 50px;
+      font-size: 75px;
+      transition: color $transition linear;
+
+      &:hover { color: $blue; }
+    }
+
+    .heading {
+      text-align: center;
+
+      h2 {
+        font-size: 3em;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+
+      p {
+        color: $grey;
+        font-size: 16px;
+        font-style: italic;
+        margin: 25px 0;
+      }
+    }
+
+    .divider { margin: 25px 0; }
+    .btn-primary {
+      margin-top: 15px;
+      height: 50px;
+      font-weight: 500;
+      text-transform: small-caps;
+    }
+  }
 }
