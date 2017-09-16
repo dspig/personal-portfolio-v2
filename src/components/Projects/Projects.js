@@ -5,14 +5,14 @@ import SectionTitle from '../SectionTitle'
 import ProjectOverlay from './ProjectOverlay'
 
 import { projects } from '../../assets/scripts/projects'
-import testImage from '../../assets/images/home.jpeg'
 
 class Projects extends Component {
   handleProject = index => this.props.openProject(index)
 
   renderProjects() {
     return Object.keys(projects).map((project, i) => {
-      const { name } = projects[project]
+      const { image, name } = projects[project]
+      const img = require(`../../assets/images/${image}`)
 
       return (
         <div key={i} className='col-sm-12 col-md-6 col-lg-4 project-card'>
@@ -20,7 +20,11 @@ class Projects extends Component {
             <div className='overlay'>
               <i className='fa fa-plus' aria-hidden='true' />
             </div>
-            <img className='card-img-top' src={testImage} />
+            <img 
+              alt='project screenshot'
+              className='card-img-top' 
+              src={img}
+            />
             <div className='card-block'>
               <h4 className='text-center'>{ name }</h4>
             </div>

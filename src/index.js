@@ -6,21 +6,7 @@ import ReduxPromise from 'redux-promise'
 import reducers from './reducers'
 import './styles.css';
 
-import Navbar from './components/Navbar/Navbar'
-import Home from './components/Home/Home'
-import About from './components/About/About'
-import Projects from './components/Projects/Projects'
-import Contact from './components/Contact/Contact'
-
-const App = () => (
-  <div className='app-wrapper'>
-    <Navbar />
-    <Home />
-    <About />
-    <Projects />
-    <Contact />
-  </div>
-)
+import App from './components/App'
 
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore)
 

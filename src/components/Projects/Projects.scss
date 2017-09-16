@@ -17,7 +17,7 @@
 
         i { color: #fff; }
       }
-
+      
       .overlay {
         position: absolute;
         height: calc(100% - 75px);
@@ -33,7 +33,10 @@
         }
       }
 
-      img { border-radius: 0; }
+      img { 
+        border-radius: 0; 
+        min-height: 170px;
+      }
       .card-block {
         height: 75px;
         display: flex;

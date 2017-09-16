@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { closeProject } from '../../actions/close_project'
 
-import test from '../../assets/images/home.jpeg'
-
 class ProjectOverlay extends Component {
   handleClose = () => this.props.closeProject()
   renderVideo = (image, video) => {
