@@ -1,27 +1,46 @@
-import React from 'react'
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import scrollToComponent from 'react-scroll-to-component'
 
-const Navbar = () => {
-  return (
-    <nav className='navbar-wrapper'>
-      <div className='container'>
-        <div className='brand'>Brandon Achu</div>
-        <div className='menu'>
-          <a to='/' className='active'>
-            <li>Home</li>
-          </a>
-          <a to='/projects' className=''>
-            <li>Projects</li>
-          </a>
-          <a to='/about' className=''>
-            <li>About</li>
-          </a>
-          <a to='/contact' className=''>
-            <li>Contact</li>
-          </a>
+class Navbar extends Component {
+  handleScroll = (target) => {
+    const reference = this.props.pointers[target]
+    scrollToComponent(reference, {
+      offset: 0,
+      align: 'top',
+      duration: 1500
+    })
+  }
+
+  render() {
+    const { handleScroll } = this
+
+    return (
+      <nav className='navbar-wrapper'>
+        <div className='container'>
+          <div className='brand'>Brandon Achu</div>
+          <div className='menu'>
+            <a className='active' onClick={() => handleScroll('home')}>
+              <li>Home</li>
+            </a>
+            <a onClick={() => handleScroll('projects')}>
+              <li>Projects</li>
+            </a>
+            <a onClick={() => handleScroll('about')}>
+              <li>About</li>
+            </a>
+            <a onClick={() => handleScroll('contact')}>
+              <li>Contact</li>
+            </a>
+          </div>
         </div>
-      </div>
-    </nav>
-  )
+      </nav>
+    )
+  }
 }
 
-export default Navbar
+const mapStateToProps = ({ pointers }) => {
+  return { pointers }
+}
+
+export default connect(mapStateToProps)(Navbar)
