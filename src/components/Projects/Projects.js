@@ -1,13 +1,23 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { openProject } from '../../actions/open_project'
+import { setPointer } from '../../actions/set_pointer'
+import scrollToComponent from 'react-scroll-to-component'
 import SectionTitle from '../SectionTitle'
 import ProjectOverlay from './ProjectOverlay'
 
 import { projects } from '../../assets/scripts/projects'
 
 class Projects extends Component {
-  handleProject = index => this.props.openProject(index)
+  componentDidMount() { this.props.setPointer({ projects: this.refs.projects }) }
+  handleProject = index => {
+    scrollToComponent(this.props.pointers.home, {
+      offset: 0,
+      align: 'top',
+      duration: 1500
+    })
+    this.props.openProject(index)
+  }
 
   renderProjects() {
     return Object.keys(projects).map((project, i) => {
@@ -36,7 +46,7 @@ class Projects extends Component {
 
   render() {
     return (
-      <section className='projects-wrapper'>
+      <section className='projects-wrapper' ref='projects'>
         <ProjectOverlay />
         <div className='container'>
           <SectionTitle main='Projects' sub />
@@ -49,4 +59,11 @@ class Projects extends Component {
   }
 }
 
-export default connect(null, { openProject })(Projects)
+const mapStateToProps = ({ pointers }) => {
+  return { pointers }
+}
+
+export default connect(mapStateToProps, { 
+  openProject, 
+  setPointer 
+})(Projects)

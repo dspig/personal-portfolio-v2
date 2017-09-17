@@ -13,10 +13,15 @@ const Footer = () => {
 
   return (
     <div className='footer-wrapper'>
-      <div className='btn-group'>
-        <Button link={github} icon='github' />
-        <Button link={linkedin} icon='linkedin' />
-        <Button link={email} icon='envelope-o' />
+      <div className='container'>
+        <div className='logo'>Brandon Achu</div>
+        <div className='btn-group'>
+          <div className='btns'>
+            <Button link={github} icon='github' />
+            <Button link={linkedin} icon='linkedin' />
+            <Button link={email} icon='envelope-o' />
+          </div>
+        </div>
       </div>
     </div>
   )

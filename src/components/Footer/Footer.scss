@@ -6,20 +6,49 @@
   align-items: center;
   justify-content: center;
   
-  .btn-group a {
-    border-radius: 50%;
-    height: 45px;
-    width: 45px;
+  .container {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 7.5px;
-    font-size: 1.2rem;
-    background: $blue;
-    color: #fff;
-    text-decoration: none;
-    transition: background-color $transition linear;
+    flex-direction: row;
+    height: 100%;
+  }
 
-    &:hover { background-color: darken($blue, 25%); }
+  .logo, .btn-group {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    height: 100%;
+  }
+
+  .logo {
+    font-weight: 800;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+  }
+
+  .btn-group {
+    display: flex;
+    justify-content: flex-end;
+
+    .btns {
+      display: flex;
+      flex-direction: row;
+      
+      a {
+        border-radius: 50%;
+        height: 45px;
+        width: 45px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 7.5px;
+        font-size: 1.2rem;
+        background: $blue;
+        color: #fff;
+        text-decoration: none;
+        transition: background-color $transition linear;
+    
+        &:hover { background-color: darken($blue, 25%); }
+      }
+    }
   }
 }

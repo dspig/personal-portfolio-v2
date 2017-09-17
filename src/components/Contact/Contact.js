@@ -1,12 +1,15 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { setPointer } from '../../actions/set_pointer'
 import SectionTitle from '../SectionTitle'
 
-export default class Contact extends Component {
+class Contact extends Component {
   constructor(props) {
     super(props)
     this.state = { name: '', email: '', phone: '', message: '' }
   }
 
+  componentDidMount() { this.props.setPointer({ contact: this.refs.contact }) }
   handleName = ({ target }) => this.setState({ name: target.value })
   handleEmail = ({ target }) => this.setState({ email: target.value })
   handlePhone = ({ target }) => this.setState({ phone: target.value })
@@ -27,7 +30,7 @@ export default class Contact extends Component {
     } = this
 
     return (
-      <section className='contact-wrapper'>
+      <section className='contact-wrapper' ref='contact'>
         <div className='container'>
           <SectionTitle main='Contact' sub />
           <form className='form' onSubmit={handleSubmit}>
@@ -69,3 +72,5 @@ export default class Contact extends Component {
     )
   }
 }
+
+export default connect(null, { setPointer })(Contact)
