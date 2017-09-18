@@ -1,9 +1,18 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import scrollToComponent from 'react-scroll-to-component'
 import { closeProject } from '../../actions/close_project'
 
 class ProjectOverlay extends Component {
-  handleClose = () => this.props.closeProject()
+  handleClose = () => {
+    this.props.closeProject()
+    scrollToComponent(this.props.pointers.projects, {
+      offset: 0,
+      align: 'top',
+      duration: 1500
+    })
+  }
+
   renderVideo = (image, video) => {
     if(!video) return
     
@@ -21,7 +30,10 @@ class ProjectOverlay extends Component {
     return (
       <div className='embed-responsive embed-responsive-16by9'>
         <video {...vidProps}>
-          <source src={require(`../../assets/videos/${video}`)} type={type} />
+          <source 
+            type={type} 
+            src={require(`../../assets/videos/${video}`)} 
+          />
         </video>
       </div>
     )
@@ -61,8 +73,10 @@ class ProjectOverlay extends Component {
   }
 }
 
-const mapStateToProps = ({ projectState }) => {
-  return { projectState }
+const mapStateToProps = ({ projectState, pointers }) => {
+  return { projectState, pointers }
 }
 
-export default connect(mapStateToProps, { closeProject })(ProjectOverlay)
+export default connect(mapStateToProps, { 
+  closeProject 
+})(ProjectOverlay)

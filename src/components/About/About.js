@@ -20,15 +20,15 @@ const Category = ({ extraClass, image, text }) => (
 )
 
 class About extends Component {
-  componentDidMount() { this.props.setPointer({ about: this.refs.about }) }
+  componentDidMount() { this.props.setPointer({ about: this.about }) }
   
   render() {  
     const about = "Just a Junior Developer with a passion for software and a drive to become the best at it, while making money of course! Ive had more experience working on the Frontend but love the backend work too."
     const hobbies = "I love playing various sports like Basketball, Football, etc. My absolute favorite however is Tennis, which I played throughout my entire Highschool career."
-    const facts = "I was actually born in the Cameroon, a small country in mid-western Africa. I left at the age of around 4 however and have lived in Virginia ever since."
+    const facts = "I was actually born in the Cameroon, a small country in mid-western Africa. I left and came to the U.S. around the 4yrs of age however, and have lived in Virginia ever since."
   
     return (
-      <section className='about-wrapper' ref='about'>
+      <section className='about-wrapper' ref={el => { this.about = el }}>
         <div className='container'>
           <SectionTitle main='About' sub />
           <div className='row'>

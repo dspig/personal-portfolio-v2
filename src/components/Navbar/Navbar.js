@@ -23,11 +23,11 @@ class Navbar extends Component {
             <a className='active' onClick={() => handleScroll('home')}>
               <li>Home</li>
             </a>
-            <a onClick={() => handleScroll('projects')}>
-              <li>Projects</li>
-            </a>
             <a onClick={() => handleScroll('about')}>
               <li>About</li>
+            </a>
+            <a onClick={() => handleScroll('projects')}>
+              <li>Projects</li>
             </a>
             <a onClick={() => handleScroll('contact')}>
               <li>Contact</li>
