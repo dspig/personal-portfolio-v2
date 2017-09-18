@@ -49,7 +49,7 @@ class Projects extends Component {
       <section className='projects-wrapper' ref={el => { this.projects = el }}>
         <ProjectOverlay />
         <div className='container'>
-          <SectionTitle main='Projects' sub />
+          <SectionTitle main='Projects' sub="Here are a few of the projects I've worked on" />
           <div className='row'>
           { this.renderProjects() }
           </div>

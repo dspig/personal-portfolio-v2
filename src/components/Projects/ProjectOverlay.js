@@ -13,6 +13,18 @@ class ProjectOverlay extends Component {
     })
   }
 
+  renderStack = stack =>{
+    if(!stack) return
+
+    return stack.map((el, i) => {
+      return (
+        <li key={i}>
+        { el }<span className='separator'>&bull;</span>
+        </li>
+      )
+    })
+  }
+
   renderVideo = (image, video) => {
     if(!video) return
     
@@ -41,7 +53,7 @@ class ProjectOverlay extends Component {
 
   render() {
     const { state, current } = this.props.projectState || {}
-    const { image, video, name, description } = current || {}
+    const { image, stack, video, name, description } = current || {}
     const currentState = state ? 'active' : ''
     const classname = `project-overlay ${currentState}`
 
@@ -55,7 +67,7 @@ class ProjectOverlay extends Component {
         <div className='container'>
           <div className='heading'>
             <h2>{ name }</h2>
-            <p>Lorem ipsum dolor sit amet consectetur.</p>
+            { this.renderStack(stack) }
           </div>
           { this.renderVideo(image, video) }
           <hr className='divider' />

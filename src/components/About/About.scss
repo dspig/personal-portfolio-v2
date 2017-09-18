@@ -4,6 +4,11 @@
     .card {
       border: none;
 
+      h5 {
+        margin-bottom: 15px;
+        text-transform: capitalize;
+      }
+
       &.middle { margin: 15px 0; }
       &.smaller .card-img-top { 
         min-height: 235px; 

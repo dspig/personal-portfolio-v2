@@ -1,5 +1,7 @@
 ## Description
-This is a simple react-redux project template.
+This is my personal web portfolio, built using the react, redux framework and bootstrap for the ui interfaces. You can view it online [here](https://brandon-achu.herokuapp.com/).
+
+It's still somewhat of a work in progress and I'll update with various new projects and optimizations.
 
 ## Usage
 * Clone the repo, then run **npm start**

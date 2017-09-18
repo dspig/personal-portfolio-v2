@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import axios from 'axios'
 import { setPointer } from '../../actions/set_pointer'
 import SectionTitle from '../SectionTitle'
 
@@ -16,7 +17,16 @@ class Contact extends Component {
   handleMessage = ({ target }) => this.setState({ message: target.value })
   handleSubmit = (e) => {
     e.preventDefault()
-    // const { name, email, phone, message } = this.state
+    const { name, email, phone, message } = this.state
+    const data = { name, email, phone, message }
+
+    axios.post('http://formspree.io/2kinsight16@gmail.com', data)
+      .then(res => {
+        alert('form submitted successfully')
+      })
+      .catch(error => {
+        console.log(error)
+      })
   }
 
   render() {
@@ -32,7 +42,7 @@ class Contact extends Component {
     return (
       <section className='contact-wrapper' ref={el => { this.contact = el }}>
         <div className='container'>
-          <SectionTitle main='Contact' sub />
+          <SectionTitle main='Contact' sub='Contact me if you need to know more' />
           <form className='form' onSubmit={handleSubmit}>
             <div className='row'>
               <div className='col-sm-12 col-lg-6'>
@@ -40,17 +50,20 @@ class Contact extends Component {
                   <input 
                     {...inputProps} 
                     placeholder='YOUR NAME' 
-                    onChange={handleName} 
+                    onChange={handleName}
+                    required 
                   />
                   <input 
                     {...inputProps} 
                     placeholder='YOUR EMAIL' 
-                    onChange={handleEmail} 
+                    onChange={handleEmail}
+                    required 
                   />
                   <input 
                     {...inputProps} 
                     placeholder='YOUR PHONE' 
-                    onChange={handlePhone} 
+                    onChange={handlePhone}
+                    required 
                   />
                 </div>
               </div>
@@ -61,6 +74,7 @@ class Contact extends Component {
                     className='form-control' 
                     placeholder='MESSAGE BODY'
                     onChange={handleMessage}
+                    required
                   />
                 </div>
               </div>
