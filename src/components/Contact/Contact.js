@@ -9,7 +9,7 @@ class Contact extends Component {
     this.state = { name: '', email: '', phone: '', message: '' }
   }
 
-  componentDidMount() { this.props.setPointer({ contact: this.refs.contact }) }
+  componentDidMount() { this.props.setPointer({ contact: this.contact }) }
   handleName = ({ target }) => this.setState({ name: target.value })
   handleEmail = ({ target }) => this.setState({ email: target.value })
   handlePhone = ({ target }) => this.setState({ phone: target.value })
@@ -30,7 +30,7 @@ class Contact extends Component {
     } = this
 
     return (
-      <section className='contact-wrapper' ref='contact'>
+      <section className='contact-wrapper' ref={el => { this.contact = el }}>
         <div className='container'>
           <SectionTitle main='Contact' sub />
           <form className='form' onSubmit={handleSubmit}>

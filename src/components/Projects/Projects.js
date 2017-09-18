@@ -9,7 +9,7 @@ import ProjectOverlay from './ProjectOverlay'
 import { projects } from '../../assets/scripts/projects'
 
 class Projects extends Component {
-  componentDidMount() { this.props.setPointer({ projects: this.refs.projects }) }
+  componentDidMount() { this.props.setPointer({ projects: this.projects }) }
   handleProject = index => {
     scrollToComponent(this.props.pointers.home, {
       offset: 0,
@@ -46,7 +46,7 @@ class Projects extends Component {
 
   render() {
     return (
-      <section className='projects-wrapper' ref='projects'>
+      <section className='projects-wrapper' ref={el => { this.projects = el }}>
         <ProjectOverlay />
         <div className='container'>
           <SectionTitle main='Projects' sub />

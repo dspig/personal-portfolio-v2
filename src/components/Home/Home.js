@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { setPointer } from '../../actions/set_pointer'
 import scrollToComponent from 'react-scroll-to-component'
 
 class Home extends Component {
+  componentDidMount() { this.props.setPointer({ home: this.home }) }
   handleScroll = () => {
     console.log('pointers:', this.props.pointers.projects)
     scrollToComponent(this.props.pointers.projects, {
@@ -14,7 +16,7 @@ class Home extends Component {
 
   render() {
     return (
-      <section className='home-wrapper'>
+      <section className='home-wrapper' ref={el => { this.home = el }}>
         <div className='overlay'>
           <div className='content'>
             <div className='heading container'>
@@ -37,4 +39,4 @@ const mapStateToProps = ({ pointers }) => {
   return { pointers }
 }
 
-export default connect(mapStateToProps)(Home)
+export default connect(mapStateToProps, { setPointer })(Home)
