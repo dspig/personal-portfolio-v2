@@ -20,9 +20,10 @@ class Contact extends Component {
     const { name, email, phone, message } = this.state
     const data = { name, email, phone, message }
 
-    axios.post('http://formspree.io/2kinsight16@gmail.com', data)
+    axios.post('https://formspree.io/2kinsight16@gmail.com', data)
       .then(res => {
         alert('form submitted successfully')
+        this.setState({ name: '', email: '', phone: '', message: '' })
       })
       .catch(error => {
         console.log(error)
@@ -30,15 +31,12 @@ class Contact extends Component {
   }
 
   render() {
-    const inputProps = {
-      type: 'text',
-      className: 'form-control'
-    }
+    const inputProps = { type: 'text', className: 'form-control' }
     const { 
       handleName, handleEmail, 
       handlePhone, handleMessage, handleSubmit
     } = this
-
+    const { name, email, phone, message } = this.state
     return (
       <section className='contact-wrapper' ref={el => { this.contact = el }}>
         <div className='container'>
@@ -48,21 +46,24 @@ class Contact extends Component {
               <div className='col-sm-12 col-lg-6'>
                 <div className='form-group inputs'>
                   <input 
-                    {...inputProps} 
-                    placeholder='YOUR NAME' 
+                    {...inputProps}
+                    value={name} 
                     onChange={handleName}
+                    placeholder='YOUR NAME' 
                     required 
                   />
                   <input 
-                    {...inputProps} 
-                    placeholder='YOUR EMAIL' 
+                    {...inputProps}
+                    value={email} 
                     onChange={handleEmail}
+                    placeholder='YOUR EMAIL' 
                     required 
                   />
                   <input 
-                    {...inputProps} 
-                    placeholder='YOUR PHONE' 
+                    {...inputProps}
+                    value={phone} 
                     onChange={handlePhone}
+                    placeholder='YOUR PHONE' 
                     required 
                   />
                 </div>
@@ -71,9 +72,10 @@ class Contact extends Component {
                 <div className='form-group textarea'>
                   <textarea 
                     rows={20}
+                    value={message}
+                    onChange={handleMessage}
                     className='form-control' 
                     placeholder='MESSAGE BODY'
-                    onChange={handleMessage}
                     required
                   />
                 </div>

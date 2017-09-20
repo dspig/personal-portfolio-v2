@@ -6,7 +6,6 @@ import scrollToComponent from 'react-scroll-to-component'
 class Home extends Component {
   componentDidMount() { this.props.setPointer({ home: this.home }) }
   handleScroll = () => {
-    console.log('pointers:', this.props.pointers.projects)
     scrollToComponent(this.props.pointers.projects, {
       offset: 0,
       align: 'top',
