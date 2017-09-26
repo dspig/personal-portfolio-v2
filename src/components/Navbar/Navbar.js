@@ -16,25 +16,32 @@ class Navbar extends Component {
     const { handleScroll } = this
 
     return (
-      <nav className='navbar-wrapper'>
-        <div className='container'>
-          <div className='brand'>Brandon Achu</div>
-          <div className='menu'>
-            <a className='active' onClick={() => handleScroll('home')}>
-              <li>Home</li>
-            </a>
-            <a onClick={() => handleScroll('about')}>
-              <li>About</li>
-            </a>
-            <a onClick={() => handleScroll('projects')}>
-              <li>Projects</li>
-            </a>
-            <a onClick={() => handleScroll('contact')}>
-              <li>Contact</li>
-            </a>
+      <div className='navbar-wrapper'>
+        <nav className='navbar navbar-expand-lg navbar-light bg-light'>
+          <div className='container'>
+            <a className='navbar-brand' href='#'>Brandon Achu</a>
+            <button className='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation'>
+              <span className='navbar-toggler-icon'></span>
+            </button>
+            <div className='collapse navbar-collapse' id='navbarNav'>
+              <ul className='navbar-nav ml-auto'>
+                <li className='nav-item active' onClick={() => handleScroll('home')}>
+                  <a className='nav-link' href='#'>Home <span className='sr-only'>(current)</span></a>
+                </li>
+                <li className='nav-item' onClick={() => handleScroll('about')}>
+                  <a className='nav-link' href='#'>About</a>
+                </li>
+                <li className='nav-item' onClick={() => handleScroll('projects')}>
+                  <a className='nav-link' href='#'>Projects</a>
+                </li>
+                <li className='nav-item' onClick={() => handleScroll('contact')}>
+                  <a className='nav-link' href='#'>Contact</a>
+                </li>
+              </ul>
+            </div>
           </div>
-        </div>
-      </nav>
+        </nav>
+      </div>
     )
   }
 }

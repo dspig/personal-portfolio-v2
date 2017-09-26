@@ -32,53 +32,41 @@ body {
 }
 
 .navbar-wrapper {
-  color: #fff;
   background-color: $black;
   position: fixed;
   width: 100%;
   z-index: 5;
-
-  .container {
-    display: flex;
-    flex-direction: row;
-    height: $nav-height;
-    align-items: center;
-    font-weight: 500;
-
-    .brand {
-      flex: 1;
-      padding: 1.1em 1em;
-      font-size: 1.25rem;
-      line-height: inherit;
-      font-weight: 700;
-      text-transform: uppercase;
-    }
   
-    .menu {
-      display: flex;
-      flex-direction: row;
-      height: 100%;
-      
-      a {
-        text-decoration: none;
+  .navbar-light {
+    background-color: $black !important;
+
+    .container {
+      font-weight: 500;
+
+      .navbar-toggler { background-color: #fff; }
+      .navbar-brand {
+        font-size: 1.25rem;
+        font-weight: 700;
+        text-transform: uppercase;
         color: #fff;
-        transition: color $transition linear;
-        display: flex;
-        align-items: center;
+      }
 
-        &.active { background-color: $blue; }
-        &:hover:not(.active) { color: $blue; }
-
+      .navbar-nav.ml-auto {
         li { 
-          list-style: none;
-          padding: 1.1em 1em;
-          font-size: 90%;
-          letter-spacing: 1px;
+          font-size: 90%; 
           text-transform: uppercase;
+          text-align: center;
+      
+      
+          &.active { color: $blue; }
+          a {
+            color: #fff;
+            transition: color $transition linear;
+
+            &:hover:not(.active) { color: $blue; }
+          }
         }
       }
-      
     }
   }
-
 }

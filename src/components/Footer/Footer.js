@@ -14,7 +14,7 @@ const Footer = () => {
   return (
     <div className='footer-wrapper'>
       <div className='container'>
-        <div className='logo'>Brandon Achu</div>
+        <div className='logo'>Created By - Brandon Achu (2017)</div>
         <div className='btn-group'>
           <div className='btns'>
             <Button link={github} icon='github' />
