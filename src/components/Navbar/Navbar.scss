@@ -32,6 +32,7 @@ body {
 }
 
 .navbar-wrapper {
+  @include cardShadow;
   background-color: $black;
   position: fixed;
   width: 100%;
@@ -43,7 +44,14 @@ body {
     .container {
       font-weight: 500;
 
-      .navbar-toggler { background-color: #fff; }
+      .navbar-toggler { 
+        background-color: #fff;
+        
+        .navbar-toggler-icon { transition: transform $transition linear; }
+        &:focus { outline: none; }
+        &:hover > .navbar-toggler-icon { transform: rotate(90deg); }
+      }
+
       .navbar-brand {
         font-size: 1.25rem;
         font-weight: 700;
