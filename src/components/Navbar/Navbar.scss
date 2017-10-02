@@ -47,9 +47,7 @@ body {
       .navbar-toggler { 
         background-color: #fff;
         
-        .navbar-toggler-icon { transition: transform $transition linear; }
         &:focus { outline: none; }
-        &:hover > .navbar-toggler-icon { transform: rotate(90deg); }
       }
 
       .navbar-brand {
